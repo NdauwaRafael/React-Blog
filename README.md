@@ -43,3 +43,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 # React-Blog
+
+### `npm install -g json-server`
+
+Install json-server to HELP mock api data as if stored in a real server
