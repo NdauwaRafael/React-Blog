@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class Component {
+export default class extends Component {
     state = {
         authors: []
     };
@@ -18,5 +18,6 @@ export default class Component {
             </div>
         );
     }
-}
+};
+
 
