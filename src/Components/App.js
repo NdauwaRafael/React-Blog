@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {BrowserRouter, Link} from 'react-router-dom';
+import {BrowserRouter, Link, Route} from 'react-router-dom';
 
 export default class extends Component {
     state = {
@@ -26,6 +26,10 @@ export default class extends Component {
                             <Link to="/articles">Articles</Link>
                         </li>
                     </ul>
+
+                    <Route exact path="/"/>
+                    <Route exact path="/authors"/>
+                    <Route exact path="/articles"/>
                 </Fragment>
             </BrowserRouter>
 
