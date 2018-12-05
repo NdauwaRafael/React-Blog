@@ -8,7 +8,7 @@ export default ({authors}) =>
     <Fragment>
         <ul>
             {authors.map(author =>
-            <li>
+            <li key={author.id}>
                 <Link to={"authors/" + author.id}>{author.name}</Link>
             </li>
             )}

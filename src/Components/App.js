@@ -15,7 +15,7 @@ export default class extends Component {
         const {authors} = this.state;
         return (
             <BrowserRouter>
-                <Fragment className="App">
+                <Fragment>
                     <ul>
                         <li>
                             <Link to="/">Home</Link>
