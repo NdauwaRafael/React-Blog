@@ -29,7 +29,7 @@ export default class extends Component {
                     </ul>
 
                     <Route exact path="/"/>
-                    <Route exact path="/authors" render={()=><Authors authors={authors} />}/>
+                    <Route exact path="/authors" render={props=><Authors {...props} authors={authors} />}/>
                     <Route exact path="/articles"/>
                 </Fragment>
             </BrowserRouter>
