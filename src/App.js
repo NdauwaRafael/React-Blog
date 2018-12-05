@@ -2,7 +2,13 @@ import React, {Component} from 'react';
 
 export default class Component {
     state = {
-        authors: [  ]
+        authors: []
+    };
+
+    componentDidMount() {
+        fetch('http://localhost:3004/authors')
+            .then(res => res.json())
+            .then(authors => this.setState({authors}))
     };
 
     render() {
