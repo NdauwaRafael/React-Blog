@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 export default class Component {
     state = {
-        authors: []
+        authors: [ ]
     };
 
     render() {
