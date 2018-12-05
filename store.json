@@ -6,7 +6,12 @@
       "username": "Bret",
       "email": "Sincere@april.biz",
       "phone": "1-770-736-8031 x56442",
-      "website": "hildegard.org"
+      "website": "hildegard.org",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/25.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/25.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/25.jpg"
+      }
     },
     {
 
@@ -15,7 +20,12 @@
       "username": "Antonette",
       "email": "Shanna@melissa.tv",
       "phone": "010-692-6593 x09125",
-      "website": "anastasia.net"
+      "website": "anastasia.net",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/13.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/13.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/13.jpg"
+      }
     },
     {
       "id": 3,
@@ -23,7 +33,12 @@
       "username": "Samantha",
       "email": "Nathan@yesenia.net",
       "phone": "1-463-123-4447",
-      "website": "ramiro.info"
+      "website": "ramiro.info",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/61.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/61.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/61.jpg"
+      }
     },
     {
       "id": 4,
@@ -31,7 +46,12 @@
       "username": "Karianne",
       "email": "Julianne.OConner@kory.org",
       "phone": "493-170-9623 x156",
-      "website": "kale.biz"
+      "website": "kale.biz",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/4.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/4.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/4.jpg"
+      }
     },
     {
       "id": 5,
@@ -39,7 +59,12 @@
       "username": "Kamren",
       "email": "Lucio_Hettinger@annie.ca",
       "phone": "(254)954-1289",
-      "website": "demarco.info"
+      "website": "demarco.info",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/72.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/72.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/72.jpg"
+      }
     },
     {
       "id": 6,
@@ -47,7 +72,12 @@
       "username": "Leopoldo_Corkery",
       "email": "Karley_Dach@jasper.info",
       "phone": "1-477-935-8478 x6430",
-      "website": "ola.org"
+      "website": "ola.org",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/20.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/20.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/20.jpg"
+      }
     },
     {
       "id": 7,
@@ -55,7 +85,12 @@
       "username": "Elwyn.Skiles",
       "email": "Telly.Hoeger@billy.biz",
       "phone": "210.067.6132",
-      "website": "elvis.io"
+      "website": "elvis.io",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/89.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/89.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/89.jpg"
+      }
     },
     {
       "id": 8,
@@ -63,7 +98,12 @@
       "username": "Maxime_Nienow",
       "email": "Sherwood@rosamond.me",
       "phone": "586.493.6943 x140",
-      "website": "jacynthe.com"
+      "website": "jacynthe.com",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/38.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/38.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/38.jpg"
+      }
     },
     {
       "id": 9,
@@ -71,7 +111,12 @@
       "username": "Delphine",
       "email": "Chaim_McDermott@dana.io",
       "phone": "(775)976-6794 x41206",
-      "website": "conrad.com"
+      "website": "conrad.com",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/21.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/21.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/21.jpg"
+      }
     },
     {
       "id": 10,
@@ -79,7 +124,12 @@
       "username": "Moriah.Stanton",
       "email": "Rey.Padberg@karina.biz",
       "phone": "024-648-3804",
-      "website": "ambrose.net"
+      "website": "ambrose.net",
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/91.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/91.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/91.jpg"
+      }
     }
   ]
 }
