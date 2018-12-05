@@ -15,6 +15,7 @@ export default ({match: {url}, authors}) =>
             </li>
             )}
         </ul>
+        <Route exact  path={url} render={()=> <div><h3>Please select an Author from the above:</h3></div>} />
         <Route path={`${url}/:authorId`} render={({match})=> <Author  {...authors.find(author => author.id === parseInt(match.params.authorId))}/>}/>
 
     </Fragment>
