@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter, Link, Route} from 'react-router-dom';
-
+import Authors from './Authors'
 export default class extends Component {
     state = {
         authors: []
@@ -12,6 +12,7 @@ export default class extends Component {
     };
 
     render() {
+        const {authors} = this.state;
         return (
             <BrowserRouter>
                 <Fragment className="App">
@@ -28,7 +29,7 @@ export default class extends Component {
                     </ul>
 
                     <Route exact path="/"/>
-                    <Route exact path="/authors"/>
+                    <Route exact path="/authors" render={()=><Authors authors={authors} />}/>
                     <Route exact path="/articles"/>
                 </Fragment>
             </BrowserRouter>
