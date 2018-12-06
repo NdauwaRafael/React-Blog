@@ -8,7 +8,7 @@ export default class extends Component {
     };
 
     async componentDidMount() {
-        const authors = await (await fetch('http://localhost:3004/authors') ).json();
+        const authors = await (await fetch('http://localhost:3004/authors?_embed=posts') ).json();
         this.setState({authors});
     };
 
