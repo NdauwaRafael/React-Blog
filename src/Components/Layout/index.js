@@ -22,7 +22,9 @@ import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import {withStyles} from '@material-ui/core/styles';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
+import {compose} from 'recompose';
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -60,6 +62,9 @@ const styles = theme => ({
             },
         },
     },
+    nested: {
+        paddingLeft: theme.spacing.unit * 4,
+    },
 });
 
 class Layout extends Component {
@@ -72,7 +77,7 @@ class Layout extends Component {
     };
 
     render() {
-        const {classes, children, authors} = this.props;
+        const {classes, children, authors, location: {pathname}} = this.props;
         const {mobileOpen} = this.state;
 
         const drawer = (
@@ -84,24 +89,28 @@ class Layout extends Component {
 
                 <MenuList>
                     <Divider/>
-                    <MenuItem component={Link} to="/"className={classes.menuItem}>
+                    <MenuItem component={Link} to="/" className={classes.menuItem} selected={'/'===pathname}>
                         Home
                     </MenuItem>
-                    <MenuItem component={Link} to="/authors" className={classes.menuItem}>
+                    <MenuItem component={Link} to="/authors" className={classes.menuItem} selected={'/authors' === pathname}>
                         Authors
                     </MenuItem>
+
+                    <MenuList>
+                        {
+                            authors.map(({id, name}) =>
+                                <MenuItem className={classes.nested} component={Link} to={`/authors/${id}`} key={id} selected={`/authors/${id}` === pathname}>
+                                    {name}
+                                </MenuItem>
+                            )
+                        }
+
+                    </MenuList>
 
                     <MenuItem component={Link} to="/articles" className={classes.menuItem}>
                         Articles
                     </MenuItem>
 
-                    {
-                        authors.map(({id, name}) =>
-                            <MenuItem component={Link} to={`/authors/${id}`} key={id}>
-                                {name}
-                            </MenuItem>
-                        )
-                    }
 
                 </MenuList>
 
@@ -109,7 +118,7 @@ class Layout extends Component {
         );
         return (
             <Fragment>
-                <CssBaseline />
+                <CssBaseline/>
                 <div className={classes.root}>
                     <CssBaseline/>
                     <AppBar position="fixed" className={classes.appBar}>
@@ -167,4 +176,7 @@ class Layout extends Component {
     }
 };
 
-export default withStyles(styles, {withTheme: true})(Layout);
+export default compose(
+    withRouter,
+    withStyles(styles, {withTheme: true})
+)  (Layout);
