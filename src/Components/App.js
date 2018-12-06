@@ -16,23 +16,25 @@ export default class extends Component {
         return (
             <BrowserRouter>
                 <Fragment>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
+                    <ul className="nav nav-pills nav-fill">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/">Home</Link>
                         </li>
-                        <li>
-                            <Link to="/authors">Authors</Link>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/authors">Authors</Link>
                         </li>
-                        <li>
-                            <Link to="/articles">Articles</Link>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/articles">Articles</Link>
                         </li>
                     </ul>
-                    <Switch>
-                        <Route exact path="/"/>
-                        <Route   path="/authors" render={props=><Authors {...props} authors={authors} />}/>
-                        <Route  path="/articles"/>
-                        <Route render={()=><div><h3>Not Found</h3></div>}/>
-                    </Switch>
+                    <div className="jumbotron">
+                        <Switch>
+                            <Route exact path="/"/>
+                            <Route   path="/authors" render={props=><Authors {...props} authors={authors} />}/>
+                            <Route  path="/articles"/>
+                            <Route render={()=><div><h3>Not Found</h3></div>}/>
+                        </Switch>
+                    </div>
                 </Fragment>
             </BrowserRouter>
 
