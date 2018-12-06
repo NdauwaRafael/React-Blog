@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
-import Authors from './Authors'
+import Authors from './Authors';
+import NotFound from './Errors/404';
 export default class extends Component {
     state = {
         authors: []
@@ -32,7 +33,7 @@ export default class extends Component {
                             <Route exact path="/"/>
                             <Route   path="/authors" render={props=><Authors {...props} authors={authors} />}/>
                             <Route  path="/articles"/>
-                            <Route render={()=><div><h3>Not Found</h3></div>}/>
+                            <Route component={NotFound}/>
                         </Switch>
                     </div>
                 </Fragment>
