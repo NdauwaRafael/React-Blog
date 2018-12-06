@@ -6,7 +6,8 @@ import {Route, Link} from 'react-router-dom';
 import Post from '../Post';
 import NotFound from '../../Errors/404';
 export default (props) => {
-    const {posts} = props;
+    const {posts} = props,
+    name = props.name;
     return (
         <Fragment>
             <div className="row">
@@ -49,11 +50,10 @@ export default (props) => {
 
             <Route path={`${props.match.url}/posts/:postId`} render={props=>{
                 const post = posts.find( ({id})=>id === parseInt(props.match.params.postId));
-                console.log(props);
                 if(!post){
                     return <NotFound />
                 }else{
-                    return <Post {...props} {...post} />
+                    return <Post {...props} {...post} name={name} />
                 }
             }}/>
         </Fragment>
