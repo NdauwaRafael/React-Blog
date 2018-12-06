@@ -1,9 +1,9 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Authors from './Authors';
 import NotFound from './Errors/404';
-import Layout from './Layouts'
-export default class extends Component {
+import Layout from './Layout/index'
+class App extends Component {
     state = {
         authors: []
     };
@@ -48,5 +48,5 @@ export default class extends Component {
         );
     }
 };
-
+export default App;
 

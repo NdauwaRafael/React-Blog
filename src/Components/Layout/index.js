@@ -18,38 +18,74 @@ import {
 } from '@material-ui/core';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
-import InboxIcon from '@material-ui/icons/MoveToInbox';;
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import {withStyles} from '@material-ui/core/styles';
 
-export default class extends Component {
+const drawerWidth = 240;
+
+const styles = theme => ({
+    root: {
+        display: 'flex',
+    },
+    drawer: {
+        [theme.breakpoints.up('sm')]: {
+            width: drawerWidth,
+            flexShrink: 0,
+        },
+    },
+    appBar: {
+        marginLeft: drawerWidth,
+        [theme.breakpoints.up('sm')]: {
+            width: `calc(100% - ${drawerWidth}px)`,
+        },
+    },
+    menuButton: {
+        marginRight: 20,
+        [theme.breakpoints.up('sm')]: {
+            display: 'none',
+        },
+    },
+    toolbar: theme.mixins.toolbar,
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing.unit * 3,
+    },
+});
+
+class Layout extends Component {
     state = {
         mobileOpen: false,
     };
 
     handleDrawerToggle = () => {
-        this.setState(state => ({ mobileOpen: !state.mobileOpen }));
+        this.setState(state => ({mobileOpen: !state.mobileOpen}));
     };
-    render(){
-        const { classes, children, authors } = this.props;
+
+    render() {
+        const {classes, children, authors} = this.props;
         const {mobileOpen} = this.state;
 
         const drawer = (
             <div>
-                <div className={classes.toolbar} />
-                <Divider />
+                <div className={classes.toolbar}/>
+                <Divider/>
                 <List>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                         <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
+                            <ListItemText primary={text}/>
                         </ListItem>
                     ))}
                 </List>
-                <Divider />
+                <Divider/>
                 <List>
                     {['All mail', 'Trash', 'Spam'].map((text, index) => (
                         <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
+                            <ListItemText primary={text}/>
                         </ListItem>
                     ))}
                 </List>
@@ -57,7 +93,7 @@ export default class extends Component {
         );
         return (
             <div className={classes.root}>
-                <CssBaseline />
+                <CssBaseline/>
                 <AppBar position="fixed" className={classes.appBar}>
                     <Toolbar>
                         <IconButton
@@ -66,7 +102,7 @@ export default class extends Component {
                             onClick={this.handleDrawerToggle}
                             className={classes.menuButton}
                         >
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <Typography variant="h6" color="inherit" noWrap>
                             Responsive drawer
@@ -104,10 +140,12 @@ export default class extends Component {
                     </Hidden>
                 </nav>
                 <main className={classes.content}>
-                    <div className={classes.toolbar} />
+                    <div className={classes.toolbar}/>
                     {children}
                 </main>
             </div>
         );
     }
-}
+};
+
+export default withStyles(styles, { withTheme: true })(Layout);
