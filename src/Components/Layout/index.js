@@ -14,12 +14,15 @@ import {
     List,
     ListItem,
     ListItemIcon,
-    ListItemText
+    ListItemText,
+    MenuList,
+    MenuItem
 } from '@material-ui/core';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import {withStyles} from '@material-ui/core/styles';
+import {Link} from 'react-router-dom';
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -49,6 +52,14 @@ const styles = theme => ({
         flexGrow: 1,
         padding: theme.spacing.unit * 3,
     },
+    menuItem: {
+        '&:focus': {
+            backgroundColor: theme.palette.primary.main,
+            '& $primary, & $icon': {
+                color: theme.palette.common.white,
+            },
+        },
+    },
 });
 
 class Layout extends Component {
@@ -71,6 +82,17 @@ class Layout extends Component {
                     <div className={classes.toolbar}/>
                 </Hidden>
                 <Divider/>
+                <MenuList>
+                    <MenuItem className={classes.menuItem}>
+                        <Link  to="/">Home</Link>
+                    </MenuItem>
+                    <MenuItem className={classes.menuItem}>
+                        <Link to="/authors">Authors</Link>
+                    </MenuItem>
+                    <MenuItem className={classes.menuItem}>
+                        <Link to="/articles">Articles</Link>
+                    </MenuItem>
+                </MenuList>
                 <List>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                         <ListItem button key={text}>
