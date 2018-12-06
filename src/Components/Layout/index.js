@@ -67,7 +67,9 @@ class Layout extends Component {
         const drawer = (
 
             <div>
-                <div className={classes.toolbar}/>
+                <Hidden xsDown>
+                    <div className={classes.toolbar}/>
+                </Hidden>
                 <Divider/>
                 <List>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
