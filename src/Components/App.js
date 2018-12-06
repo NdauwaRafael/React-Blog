@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from 'react';
-import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Authors from './Authors';
 import NotFound from './Errors/404';
+import Layout from './Layouts'
 export default class extends Component {
     state = {
         authors: []
@@ -16,30 +17,32 @@ export default class extends Component {
         const {authors} = this.state;
         return (
             <BrowserRouter>
-                <Fragment>
-                    <ul className="nav nav-pills nav-fill">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/">Home</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/authors">Authors</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/articles">Articles</Link>
-                        </li>
-                    </ul>
-                    <div className="jumbotron card">
-                        <div className="container-fluid ">
-                            <Switch>
-                                <Route exact path="/"/>
-                                <Route   path="/authors" render={props=><Authors {...props} authors={authors} />}/>
-                                <Route  path="/articles"/>
-                                <Route component={NotFound}/>
-                            </Switch>
+                <Layout authors={authors}>
+                    {/*<ul className="nav nav-pills nav-fill">*/}
+                        {/*<li className="nav-item">*/}
+                            {/*<Link className="nav-link" to="/">Home</Link>*/}
+                        {/*</li>*/}
+                        {/*<li className="nav-item">*/}
+                            {/*<Link className="nav-link" to="/authors">Authors</Link>*/}
+                        {/*</li>*/}
+                        {/*<li className="nav-item">*/}
+                            {/*<Link className="nav-link" to="/articles">Articles</Link>*/}
+                        {/*</li>*/}
+                    {/*</ul>*/}
+                    {/*<div className="jumbotron card">*/}
+                        {/*<div className="container-fluid ">*/}
 
-                        </div>
-                    </div>
-                </Fragment>
+                        {/*</div>*/}
+                    {/*</div>*/}
+
+                    <Switch>
+                        <Route exact path="/"/>
+                        <Route   path="/authors" render={props=><Authors {...props} authors={authors} />}/>
+                        <Route  path="/articles"/>
+                        <Route component={NotFound}/>
+                    </Switch>
+
+                </Layout>
             </BrowserRouter>
 
         );
