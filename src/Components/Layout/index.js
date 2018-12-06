@@ -95,6 +95,14 @@ class Layout extends Component {
                         Articles
                     </MenuItem>
 
+                    {
+                        authors.map(({id, name}) =>
+                            <MenuItem component={Link} to={`/authors/${id}`} key={id}>
+                                {name}
+                            </MenuItem>
+                        )
+                    }
+
                 </MenuList>
 
             </div>
