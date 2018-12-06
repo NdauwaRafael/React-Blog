@@ -81,35 +81,22 @@ class Layout extends Component {
                 <Hidden xsDown>
                     <div className={classes.toolbar}/>
                 </Hidden>
-                <Divider/>
+
                 <MenuList>
-                    <MenuItem className={classes.menuItem}>
-                        <Link  to="/">Home</Link>
+                    <Divider/>
+                    <MenuItem component={Link} to="/"className={classes.menuItem}>
+                        Home
                     </MenuItem>
-                    <MenuItem className={classes.menuItem}>
-                        <Link to="/authors">Authors</Link>
+                    <MenuItem component={Link} to="/authors" className={classes.menuItem}>
+                        Authors
                     </MenuItem>
-                    <MenuItem className={classes.menuItem}>
-                        <Link to="/articles">Articles</Link>
+
+                    <MenuItem component={Link} to="/articles" className={classes.menuItem}>
+                        Articles
                     </MenuItem>
+
                 </MenuList>
-                <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                            <ListItemText primary={text}/>
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider/>
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                            <ListItemText primary={text}/>
-                        </ListItem>
-                    ))}
-                </List>
+
             </div>
         );
         return (
