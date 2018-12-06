@@ -20,12 +20,12 @@ export default ({match: {url}, authors}) =>
             </div>
             <div className="col-9">
                 <Route exact  path={url} render={()=> <div><h3>Please select an Author from the above:</h3></div>} />
-                <Route path={`${url}/:authorId`} render={({match})=> {
-                    const author = authors.find(author => author.id === parseInt(match.params.authorId));
+                <Route path={`${url}/:authorId`} render={props=> {
+                    const author = authors.find(author => author.id === parseInt(props.match.params.authorId));
                     if(!author){
                         return <Redirect to="/404"/>
                     }else {
-                      return  <Author  {...author}/>
+                      return  <Author {...props} {...author}/>
                     }
                 }
                 }/>

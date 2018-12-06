@@ -28,13 +28,16 @@ export default class extends Component {
                             <Link className="nav-link" to="/articles">Articles</Link>
                         </li>
                     </ul>
-                    <div className="jumbotron">
-                        <Switch>
-                            <Route exact path="/"/>
-                            <Route   path="/authors" render={props=><Authors {...props} authors={authors} />}/>
-                            <Route  path="/articles"/>
-                            <Route component={NotFound}/>
-                        </Switch>
+                    <div className="jumbotron card">
+                        <div className="container-fluid ">
+                            <Switch>
+                                <Route exact path="/"/>
+                                <Route   path="/authors" render={props=><Authors {...props} authors={authors} />}/>
+                                <Route  path="/articles"/>
+                                <Route component={NotFound}/>
+                            </Switch>
+
+                        </div>
                     </div>
                 </Fragment>
             </BrowserRouter>
