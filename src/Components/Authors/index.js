@@ -4,6 +4,7 @@
 import React, {Fragment} from 'react';
 import {Route, Link, Redirect} from 'react-router-dom';
 import Author from './Author/index';
+import NotFound from '../Errors/404'
 
 
 export default ({match: {url}, authors}) =>
@@ -23,7 +24,7 @@ export default ({match: {url}, authors}) =>
                 <Route path={`${url}/:authorId`} render={props=> {
                     const author = authors.find(author => author.id === parseInt(props.match.params.authorId));
                     if(!author){
-                        return <Redirect to="/404"/>
+                        return <NotFound />
                     }else {
                       return  <Author {...props} {...author}/>
                     }
