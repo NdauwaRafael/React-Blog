@@ -10,7 +10,6 @@ import {
     Typography,
     Hidden,
     Drawer,
-    Divider,
     MenuList,
     MenuItem
 } from '@material-ui/core';
@@ -82,7 +81,6 @@ class Layout extends Component {
                 </Hidden>
 
                 <MenuList>
-                    <Divider/>
                     <MenuItem component={Link} to="/" className={classes.menuItem} selected={'/'===pathname}>
                         Home
                     </MenuItem>

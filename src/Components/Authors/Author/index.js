@@ -4,16 +4,21 @@
 import React, {Fragment} from 'react';
 import {Route, Link} from 'react-router-dom';
 import Post from '../Post';
+import AddPost from '../Post/Add';
 import NotFound from '../../Errors/404';
-import Grid from '@material-ui/core/Grid';
+import {
+    Grid,
+    Divider,
+} from '@material-ui/core';
+
 export default (props) => {
-    const {posts} = props,
-    name = props.name;
+    const {posts, location: {pathname}} = props,
+        name = props.name;
     return (
         <Fragment>
             <Grid container spacing={24} className="row">
                 <Grid item md={4}>
-                    <div className="card " >
+                    <div className="card ">
                         {
                             <img className="card-img-top" src={props.picture} alt=""/>
                         }
@@ -33,17 +38,21 @@ export default (props) => {
                         <div className="card-body">
                             <a href="#" className="card-link">{props.website}</a>
                         </div>
+                        <Divider/>
+                        <div className="card-body">
+                            <Link to={`${props.match.url}/posts/add`}>Add Post</Link>
+                            <a  className="card-link">Another link</a>
+                        </div>
 
                     </div>
                 </Grid>
 
-                {/*<div className="col-lg-1"> </div>*/}
                 <Grid item md={8}>
                     <div className="card">
                         <h3>Posts shared by {props.username}</h3>
                         <ul className="list-group list-group-flush">
                             {
-                                props.posts.map(({id, title})=>
+                                props.posts.map(({id, title}) =>
                                     <li className="list-group-item" key={id}>
                                         <Link to={`${props.match.url}/posts/${id}`}>{title}</Link>
                                     </li>
@@ -54,14 +63,20 @@ export default (props) => {
                 </Grid>
             </Grid>
 
-            <Route path={`${props.match.url}/posts/:postId`} render={props=>{
-                const post = posts.find( ({id})=>id === parseInt(props.match.params.postId));
-                if(!post){
-                    return <NotFound />
-                }else{
-                    return <Post {...props} {...post} name={name} />
+            <Route path={`${props.match.url}/posts/:postId`} render={props => {
+                const post = posts.find(({id}) => id === parseInt(props.match.params.postId));
+                const Add = props.match.url;
+                if (!post) {
+                    if(Add === pathname) {
+                        return <AddPost {...props} />;
+                    }
+                    return <NotFound/>
+                } else {
+                    return <Post {...props} {...post} name={name}/>
                 }
             }}/>
+
+            {/*<Route path={`${props.match.url}/posts/add`} render={props=><AddPost {...props} />}/>*/}
         </Fragment>
     );
 }
