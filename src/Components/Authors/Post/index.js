@@ -5,9 +5,12 @@ import React, {Fragment} from 'react';
 
 export default (props)=> {
     const {name, title, body} = props;
+    const styles = {
+        marginTop: 20
+    };
     return (
         <Fragment>
-            <div className="card"  >
+            <div className="card"  style={styles} >
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">by: {name}</h6>

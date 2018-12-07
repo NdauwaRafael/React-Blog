@@ -5,13 +5,14 @@ import React, {Fragment} from 'react';
 import {Route, Link} from 'react-router-dom';
 import Post from '../Post';
 import NotFound from '../../Errors/404';
+import Grid from '@material-ui/core/Grid';
 export default (props) => {
     const {posts} = props,
     name = props.name;
     return (
         <Fragment>
-            <div className="row">
-                <div className="col-lg-4">
+            <Grid container spacing={24} className="row">
+                <Grid item md={4}>
                     <div className="card " >
                         {
                             <img className="card-img-top" src={props.picture} alt=""/>
@@ -34,22 +35,24 @@ export default (props) => {
                         </div>
 
                     </div>
-                </div>
+                </Grid>
 
                 {/*<div className="col-lg-1"> </div>*/}
-                <div className="card col-lg-8">
-                    <h3>Posts shared by {props.username}</h3>
-                    <ul className="list-group list-group-flush">
-                        {
-                            props.posts.map(({id, title})=>
-                                <li className="list-group-item" key={id}>
-                                    <Link to={`${props.match.url}/posts/${id}`}>{title}</Link>
-                                </li>
-                            )
-                        }
-                    </ul>
-                </div>
-            </div>
+                <Grid item md={8}>
+                    <div className="card">
+                        <h3>Posts shared by {props.username}</h3>
+                        <ul className="list-group list-group-flush">
+                            {
+                                props.posts.map(({id, title})=>
+                                    <li className="list-group-item" key={id}>
+                                        <Link to={`${props.match.url}/posts/${id}`}>{title}</Link>
+                                    </li>
+                                )
+                            }
+                        </ul>
+                    </div>
+                </Grid>
+            </Grid>
 
             <Route path={`${props.match.url}/posts/:postId`} render={props=>{
                 const post = posts.find( ({id})=>id === parseInt(props.match.params.postId));

@@ -7,6 +7,7 @@ import Author from './Author/index';
 import NotFound from '../Errors/404';
 import {withStyles} from '@material-ui/core/styles';
 import {
+    Grid,
     GridList,
     GridListTile,
     GridListTileBar,
@@ -46,8 +47,8 @@ const styles = theme => ({
 const Authors = ({match: {url}, authors, classes}) => {
     return (
         <Fragment>
-            <div className="row">
-                <div className="col-12">
+            <Grid container spacing={24}>
+                <Grid item md={12}>
                     <div className={classes.root}>
                         <GridList className={classes.gridList} cols={2.5}>
                             {authors.map(author => (
@@ -71,8 +72,8 @@ const Authors = ({match: {url}, authors, classes}) => {
                             ))}
                         </GridList>
                     </div>
-                </div>
-                <div className="col-12">
+                </Grid>
+                <Grid item md={12}>
 
                     <Paper className={classes.paperRoot} elevation={1}>
                         <Route exact path={url}
@@ -89,8 +90,8 @@ const Authors = ({match: {url}, authors, classes}) => {
                     </Paper>
 
 
-                </div>
-            </div>
+                </Grid>
+            </Grid>
 
 
         </Fragment>
