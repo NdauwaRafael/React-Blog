@@ -11,30 +11,33 @@ export default (props) => {
     return (
         <Fragment>
             <div className="row">
-                <div className="card col-lg-4" >
-                    {
-                       <img className="card-img-top" src={props.picture} alt=""/>
-                    }
+                <div className="col-lg-4">
+                    <div className="card " >
+                        {
+                            <img className="card-img-top" src={props.picture} alt=""/>
+                        }
 
-                    <div className="card-body">
-                        <h5 className="card-title">{props.name}</h5>
-                        <h2 className="card-text">
-                            {props.username}
-                        </h2>
+                        <div className="card-body">
+                            <h5 className="card-title">{props.name}</h5>
+                            <h2 className="card-text">
+                                {props.username}
+                            </h2>
+                        </div>
+
+                        <ul className="list-group list-group-flush">
+                            <li className="list-group-item">{props.email}</li>
+                            <li className="list-group-item">{props.phone}</li>
+                        </ul>
+
+                        <div className="card-body">
+                            <a href="#" className="card-link">{props.website}</a>
+                        </div>
+
                     </div>
-
-                    <ul className="list-group list-group-flush">
-                        <li className="list-group-item">{props.email}</li>
-                        <li className="list-group-item">{props.phone}</li>
-                    </ul>
-
-                    <div className="card-body">
-                        <a href="#" className="card-link">{props.website}</a>
-                    </div>
-
                 </div>
-                <div className="col-lg-1"> </div>
-                <div className="card col-lg-7">
+
+                {/*<div className="col-lg-1"> </div>*/}
+                <div className="card col-lg-8">
                     <h3>Posts shared by {props.username}</h3>
                     <ul className="list-group list-group-flush">
                         {

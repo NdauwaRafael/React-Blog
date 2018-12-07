@@ -5,13 +5,14 @@ import React, {Fragment} from 'react';
 import {Route, Link} from 'react-router-dom';
 import Author from './Author/index';
 import NotFound from '../Errors/404';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {
     GridList,
     GridListTile,
     GridListTileBar,
-    IconButton
-}from '@material-ui/core';
+    IconButton,
+    Paper
+} from '@material-ui/core';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 const styles = theme => ({
@@ -20,7 +21,13 @@ const styles = theme => ({
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         overflow: 'hidden',
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: theme.palette.background.paper
+    },
+    paperRoot: {
+        ...theme.mixins.gutters(),
+        paddingTop: theme.spacing.unit * 2,
+        paddingBottom: theme.spacing.unit * 2,
+        marginTop: 20
     },
     gridList: {
         flexWrap: 'nowrap',
@@ -36,29 +43,29 @@ const styles = theme => ({
     },
 });
 
-const Authors =  ({match: {url}, authors, classes}) => {
+const Authors = ({match: {url}, authors, classes}) => {
     return (
         <Fragment>
             <div className="row">
                 <div className="col-12">
                     <div className={classes.root}>
                         <GridList className={classes.gridList} cols={2.5}>
-                            {authors.map(author =>(
-                                <GridListTile key={author.id}>
-                                    <img src={author.picture} alt={author.name} />
+                            {authors.map(author => (
+                                <GridListTile key={author.id} component={Link} to={`${url}/${author.id}`}>
+                                    <img src={author.picture} alt={author.name}/>
                                     <GridListTileBar
-                                        component={Link}
+
                                         title={author.name}
                                         classes={{
                                             root: classes.titleBar,
                                             title: classes.title,
                                         }}
                                         actionIcon={
-                                            <IconButton >
-                                                <StarBorderIcon className={classes.title} />
+                                            <IconButton>
+                                                <StarBorderIcon className={classes.title}/>
                                             </IconButton>
                                         }
-                                        to={`${url}/${author.id}`}
+
                                     />
                                 </GridListTile>
                             ))}
@@ -66,16 +73,22 @@ const Authors =  ({match: {url}, authors, classes}) => {
                     </div>
                 </div>
                 <div className="col-12">
-                    <Route exact  path={url} render={()=> <div><h3>Please select an Author from the above:</h3></div>} />
-                    <Route  path={`${url}/:authorId`} render={props=> {
-                        const author = authors.find(author => author.id === parseInt(props.match.params.authorId));
-                        if(!author){
-                            return <NotFound />
-                        }else {
-                            return  <Author {...props} {...author}/>
+
+                    <Paper className={classes.paperRoot} elevation={1}>
+                        <Route exact path={url}
+                               render={() => <div><h3>Please select an Author from the above:</h3></div>}/>
+                        <Route path={`${url}/:authorId`} render={props => {
+                            const author = authors.find(author => author.id === parseInt(props.match.params.authorId));
+                            if (!author) {
+                                return <NotFound/>
+                            } else {
+                                return <Author {...props} {...author}/>
+                            }
                         }
-                    }
-                    }/>
+                        }/>
+                    </Paper>
+
+
                 </div>
             </div>
 
