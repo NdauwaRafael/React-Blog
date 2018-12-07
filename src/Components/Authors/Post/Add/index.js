@@ -3,8 +3,9 @@
  */
 import React, {Component} from 'react';
 import {
-    TextField
+    TextField,
 } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
     container: {
@@ -25,11 +26,18 @@ const styles = theme => ({
 });
 
 class AddPost extends Component {
-    constructor(props) {
-        super(props)
-    }
-    
+    state = {
+        title: '',
+        body: ''
+    };
+
+    handleChange = name => event => {
+        this.setState({
+            [name]: event.target.value,
+        });
+    };
     render() {
+        const {classes} = this.props;
         return (
             <div>
                 <form className={classes.container} noValidate autoComplete="off">
@@ -38,9 +46,11 @@ class AddPost extends Component {
                         label="Label"
                         style={{margin: 8}}
                         placeholder="Placeholder"
-                        helperText="Full width!"
+                        helperText="Post Title"
                         fullWidth
                         margin="normal"
+                        value={this.state.title}
+                        onChange={this.handleChange('title')}
                         InputLabelProps={{
                             shrink: true,
                         }}
@@ -49,8 +59,11 @@ class AddPost extends Component {
                     <TextField
                         id="standard-textarea"
                         label="With placeholder multiline"
-                        placeholder="Placeholder"
+                        placeholder="Post Description"
                         multiline
+                        fullWidth
+                        value={this.state.body}
+                        onChange={this.handleChange('body')}
                         className={classes.textField}
                         margin="normal"
                     />
@@ -61,4 +74,4 @@ class AddPost extends Component {
     }
 }
 
-export default AddPost;
+export default withStyles(styles)(AddPost);
