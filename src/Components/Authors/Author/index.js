@@ -13,7 +13,7 @@ export default (props) => {
             <div className="row">
                 <div className="card col-lg-4" >
                     {
-                        props.picture ? <img className="card-img-top" src={props.picture.large} alt=""/> : ''
+                       <img className="card-img-top" src={props.picture} alt=""/>
                     }
 
                     <div className="card-body">
