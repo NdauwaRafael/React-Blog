@@ -9,6 +9,7 @@ import NotFound from '../../Errors/404';
 import {
     Grid,
     Divider,
+    Button
 } from '@material-ui/core';
 
 export default (props) => {
@@ -40,8 +41,9 @@ export default (props) => {
                         </div>
                         <Divider/>
                         <div className="card-body">
-                            <Link to={`${props.match.url}/posts/add`}>Add Post</Link>
-                            <a  className="card-link">Another link</a>
+                            <Button component={Link} variant="outlined" color="primary" to={`${props.match.url}/posts/add`}>
+                                Add Post
+                            </Button>
                         </div>
 
                     </div>
